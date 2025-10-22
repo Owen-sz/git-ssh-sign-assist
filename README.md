@@ -17,6 +17,10 @@ Run `setup.sh`:
 
 `bash setup.sh`
 
+Catch-all script:
+
+`git clone https://github.com/Owen-sz/git-ssh-sign-assist.git && cd git-ssh-sign-assist && bash setup.sh`
+
 ## Why would you go out of your way to script such a simple thing?
 
 Because I have so many computers that this will actually save me time.
