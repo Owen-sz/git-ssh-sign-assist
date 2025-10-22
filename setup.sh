@@ -2,6 +2,15 @@
 
 echo "You have started the git ssh setup script"
 
+echo "First, let's set up git. What is your GitHub username?"
+read -r ghuser
+echo "What is your email you would like to use?"
+read -r email
+
+echo "Configuring git with your information... "
+git config --global user.name "${ghuser}"
+git config --global user.email "${email}"
+
 echo "Telling git to use autosign commits with ssh..."
 git config --global gpg.format ssh
 git config --global commit.gpgsign true
@@ -26,14 +35,5 @@ read -rp "Once completed, press Enter to continue" </dev/tty
 
 echo "pointing git to your SSH key (${SSHKEY})..."
 git config --global user.signingkey ~/.ssh/id_ed25519.pub
-
-echo "What is your GitHub username?"
-read -r ghuser
-echo "What is your email you would like to use?"
-read -r email
-
-echo "Configuring git with your information... "
-git config --global user.name "${ghuser}"
-git config --global user.email "${email}"
 
 echo "All done! Your git commits should be automatically signed with an SSH key now."
