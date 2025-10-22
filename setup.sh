@@ -28,7 +28,7 @@ else
     fi
 fi
 
-echo "Now that you have an SSH key, go to this link: https://github.com/settings/keys, then select 'New SSH key', give the key a name, change 'Key type' to 'Signing Key', and paste the below text into the 'Key' box:"
+echo "Now that you have an SSH key, go to this link: https://github.com/settings/keys, then select 'New SSH key', give the key a name, and paste the below text into the 'Key' box. NOTE: You will need to add this key to the settings again, but this time change 'Key type' to 'Authentication Key'."
 cat ${SSHKEY}
 
 read -rp "Once completed, press Enter to continue" </dev/tty
