@@ -27,12 +27,12 @@ done
 echo ""
 
 echo -e "${BOLD}Configuring git with your information...${RESET}"
-#git config --global user.name "${ghuser}"
-#git config --global user.email "${email}"
+git config --global user.name "${ghuser}"
+git config --global user.email "${email}"
 
 echo -e "${BOLD}Telling git to use autosign commits with ssh...${RESET}"
-#git config --global gpg.format ssh
-#git config --global commit.gpgsign true
+git config --global gpg.format ssh
+git config --global commit.gpgsign true
 
 echo ""
 
