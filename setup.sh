@@ -29,22 +29,22 @@ echo ""
 SSHKEY=~/.ssh/id_ed25519.pub
 if [ -f "${SSHKEY}" ]; then
     echo -e "${BOLD}${SSHKEY} exists, you do not need to generate an SSH key.${RESET}"
+    echo -e "${BOLD}Since you already have an SSH key, you can go to this link: https://github.com/settings/keys, then select 'New SSH key', give the key a name, and paste the below unbolded text into the 'Key' box. NOTE: You will need to add this key to the settings again, but this time change 'Key type' to 'Authentication Key'.${RESET}"
+    cat ${SSHKEY}
+    echo ""
 else
     echo -e "${BOLD}${SSHKEY} does not exist. You will need to generate an SSH key. Do that now (note that SSH itself will run you through the keygen. Typically, you can just leave everything blank and press Enter)? (Y/N)${RESET}"
     read -r generate
     if [[ ${generate} = "y" ]]; then
         ssh-keygen
+        echo -e "${BOLD}Now that you have an SSH key, go to this link: https://github.com/settings/keys, then select 'New SSH key', give the key a name, and paste the below unbolded text into the 'Key' box. NOTE: You will need to add this key to the settings again, but this time change 'Key type' to 'Authentication Key'.${RESET}"
+        cat ${SSHKEY}
+        echo ""
     else
         echo -e "${BOLD}Skipping ssh key generation, you will not be able to sign commits unless you generate a key...${RESET}"
+        echo ""
     fi
 fi
-
-echo ""
-
-echo -e "${BOLD}Now that you have an SSH key, go to this link: https://github.com/settings/keys, then select 'New SSH key', give the key a name, and paste the below text into the 'Key' box. NOTE: You will need to add this key to the settings again, but this time change 'Key type' to 'Authentication Key'.${RESET}"
-cat ${SSHKEY}
-
-echo ""
 
 echo -e "${BOLD}Once completed, press Enter to continue${RESET}"
 read completed
