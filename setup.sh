@@ -59,3 +59,4 @@ git config --global user.signingkey ~/.ssh/id_ed25519.pub
 echo ""
 
 echo -e "${BOLD}All done! Your git commits should be automatically signed with an SSH key now.${RESET}"
+
