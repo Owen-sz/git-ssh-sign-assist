@@ -36,7 +36,7 @@ fi
 echo -e "${BOLD}Now that you have an SSH key, go to this link: https://github.com/settings/keys, then select 'New SSH key', give the key a name, and paste the below text into the 'Key' box. NOTE: You will need to add this key to the settings again, but this time change 'Key type' to 'Authentication Key'.${RESET}"
 cat ${SSHKEY}
 
-read -rp "${BOLD}Once completed, press Enter to continue${RESET}" </dev/tty
+read -erp "${BOLD}Once completed, press Enter to continue${RESET}" </dev/tty
 
 echo -e "${BOLD}pointing git to your SSH key (${SSHKEY})...${RESET}"
 git config --global user.signingkey ~/.ssh/id_ed25519.pub
