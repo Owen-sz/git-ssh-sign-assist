@@ -1,24 +1,22 @@
 #!/usr/bin/env bash
 
 BOLD='\033[1m'
-BOLD2='\133[1m'
-BOLD3='\034[1m'
 RESET='\033[0m'
 
 echo -e "${BOLD}You have started the git ssh setup script${RESET}"
 
-echo -e "${BOLD2}First, let's set up git. What is your GitHub username?${RESET}"
+echo -e "${BOLD}First, let's set up git. What is your GitHub username?${RESET}"
 read -r ghuser
 echo "your GitHub username is ${ghuser}"
-echo -e "${BOLD2}What is your email you would like to use?${RESET}"
+echo -e "${BOLD}What is your email you would like to use?${RESET}"
 read -r email
 echo "your email that git will use is ${email}"
 
-echo -e "${BOLD2}Configuring git with your information...${RESET}"
+echo -e "${BOLD}Configuring git with your information...${RESET}"
 git config --global user.name "${ghuser}"
 git config --global user.email "${email}"
 
-echo -e "${BOLD2}Telling git to use autosign commits with ssh...${RESET}"
+echo -e "${BOLD}Telling git to use autosign commits with ssh...${RESET}"
 git config --global gpg.format ssh
 git config --global commit.gpgsign true
 
@@ -31,7 +29,7 @@ else
     if [[ ${generate} = "y" ]]; then
         ssh-keygen
     else
-        echo -e "${BOLD2}Skipping ssh key generation, you will not be able to sign commits unless you generate a key...${RESET}"
+        echo -e "${BOLD}Skipping ssh key generation, you will not be able to sign commits unless you generate a key...${RESET}"
     fi
 fi
 
@@ -40,7 +38,7 @@ cat ${SSHKEY}
 
 read -rp "${BOLD}Once completed, press Enter to continue${RESET}" </dev/tty
 
-echo -e "${BOLD2}pointing git to your SSH key (${SSHKEY})...${RESET}"
+echo -e "${BOLD}pointing git to your SSH key (${SSHKEY})...${RESET}"
 git config --global user.signingkey ~/.ssh/id_ed25519.pub
 
-echo -e "${BOLD3}All done! Your git commits should be automatically signed with an SSH key now.${RESET}"
+echo -e "${BOLD}All done! Your git commits should be automatically signed with an SSH key now.${RESET}"
